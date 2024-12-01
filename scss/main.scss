@@ -1,0 +1,44 @@
+@use "variables" as var;
+@use "mixins" as mix;
+@use "functions";
+
+button {
+  background-color: var.$button-color-primary;
+
+  :hover {
+    background-color: var.$button-color-hover;
+  }
+}
+
+.productSection {
+  min-height: 400px;
+
+  .products {
+    padding: 10px;
+    @include mix.flexStart(column);
+
+    .products__item {
+      height: 250px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      margin-bottom: 10px;
+      @include mix.boxShadow(rgba(0, 0, 0, 0.55));
+
+      .products__image {
+        max-height: 90px;
+        max-width: 100px;
+      }
+
+      .products__name,
+      .products__price {
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
